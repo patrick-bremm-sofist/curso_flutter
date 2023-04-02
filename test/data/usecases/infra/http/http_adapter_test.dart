@@ -20,7 +20,8 @@ class HttpAdapter {
       'content-type': 'application/json',
       'accept': 'application/json'
     };
-    await client.post(url, headers: headers, body: body != null ? jsonEncode(body) : null);
+    final jsonBody = body != null ? jsonEncode(body) : null;
+    await client.post(url, headers: headers, body: jsonBody);
   }
 }
 
