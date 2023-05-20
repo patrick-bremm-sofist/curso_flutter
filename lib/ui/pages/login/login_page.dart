@@ -41,7 +41,7 @@ class LoginPage extends StatelessWidget {
                   }),
               Padding(
                 padding: EdgeInsets.only(top: 8, bottom: 32),
-                child: StreamBuilder<Object>(
+                child: StreamBuilder<String>(
                     stream: presenter.passwordErrorSteam,
                     builder: (context, snapshot) {
                       return TextFormField(
