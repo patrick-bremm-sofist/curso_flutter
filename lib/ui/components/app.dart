@@ -40,7 +40,7 @@ class App extends StatelessWidget {
               textTheme: ButtonTextTheme.primary,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(20)))),
-      home: LoginPage(),
+      home: LoginPage(null),
     );
   }
 }
