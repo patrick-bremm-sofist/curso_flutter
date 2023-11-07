@@ -5,21 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "curso_flutter",
+            "name": "Flutter",
+            "type": "dart",
             "request": "launch",
-            "type": "dart"
+            "program": "lib/main/main.dart"
         },
         {
-            "name": "curso_flutter (profile mode)",
-            "request": "launch",
+            "name": "Flutter: Run all Tests",
             "type": "dart",
-            "flutterMode": "profile"
-        },
-        {
-            "name": "curso_flutter (release mode)",
             "request": "launch",
-            "type": "dart",
-            "flutterMode": "release"
+            "program": "./test/"
         }
+        
     ]
 }
