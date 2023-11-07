@@ -1,4 +1,4 @@
+.fvm/flutter_sdk
 .packages
-.vscode
 .dart_tool
 build

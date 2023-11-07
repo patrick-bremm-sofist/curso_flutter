@@ -1,12 +1,12 @@
 #!/bin/sh
 # This is a generated file; do not edit or check into version control.
-export "FLUTTER_ROOT=/home/ext.patrick.bremm/fvm/versions/1.20.4"
-export "FLUTTER_APPLICATION_PATH=/home/ext.patrick.bremm/workspace/curso_flutter"
+export "FLUTTER_ROOT=/home/patrickbremm/fvm/versions/1.20.4"
+export "FLUTTER_APPLICATION_PATH=/home/patrickbremm/workspace/curso_flutter"
 export "FLUTTER_TARGET=lib/main.dart"
 export "FLUTTER_BUILD_DIR=build"
 export "SYMROOT=${SOURCE_ROOT}/../build/ios"
 export "OTHER_LDFLAGS=$(inherited) -framework Flutter"
-export "FLUTTER_FRAMEWORK_DIR=/home/ext.patrick.bremm/fvm/versions/1.20.4/bin/cache/artifacts/engine/ios"
+export "FLUTTER_FRAMEWORK_DIR=/home/patrickbremm/fvm/versions/1.20.4/bin/cache/artifacts/engine/ios"
 export "FLUTTER_BUILD_NAME=0.0.1"
 export "FLUTTER_BUILD_NUMBER=1"
 export "DART_OBFUSCATION=false"
