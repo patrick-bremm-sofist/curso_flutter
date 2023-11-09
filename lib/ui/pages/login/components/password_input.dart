@@ -8,7 +8,7 @@ class PasswordInput extends StatelessWidget {
   Widget build(BuildContext context) {
     final presenter = Provider.of<LoginPresenter>(context);
     return StreamBuilder<String>(
-        stream: presenter.passwordErrorSteam,
+        stream: presenter.passwordErrorStream,
         builder: (context, snapshot) {
           return TextFormField(
             decoration: InputDecoration(
