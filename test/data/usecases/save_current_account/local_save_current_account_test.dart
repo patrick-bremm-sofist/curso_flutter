@@ -1,29 +1,12 @@
-import 'package:curso_flutter/domain/helpers/helpers.dart';
 import 'package:faker/faker.dart';
-import 'package:meta/meta.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
+import 'package:curso_flutter/domain/helpers/helpers.dart';
 import 'package:curso_flutter/domain/entities/entities.dart';
-import 'package:curso_flutter/domain/usecases/usecases.dart';
 
-class LocalCurrentAccount implements SaveCurrentAccount {
-  final SaveSecureCacheStorage saveSecureCacheStorage;
-
-  LocalCurrentAccount({@required this.saveSecureCacheStorage});
-
-  Future<void> save (AccountEntity account) async {
-    try {
-      await saveSecureCacheStorage.saveSecure(key: 'token', value: account.token);  
-    } catch (error) {
-      throw DomainError.unexpected;
-    }    
-  }
-}
-
-abstract class SaveSecureCacheStorage {
-  Future<void> saveSecure({@required String key, @required String value});
-}
+import 'package:curso_flutter/data/cache/cache.dart';
+import 'package:curso_flutter/data/usecases/usecases.dart';
 
 class SaveSecureCacheStorageSpy extends Mock implements SaveSecureCacheStorage {}
 
