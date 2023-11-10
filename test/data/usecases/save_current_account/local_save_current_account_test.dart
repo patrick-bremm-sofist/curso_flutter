@@ -11,13 +11,13 @@ import 'package:curso_flutter/data/usecases/usecases.dart';
 class SaveSecureCacheStorageSpy extends Mock implements SaveSecureCacheStorage {}
 
 void main() {
-  LocalCurrentAccount sut;
+  LocalSaveCurrentAccount sut;
   SaveSecureCacheStorageSpy saveSecureCacheStorage;
   AccountEntity account;
 
   setUp(() {
     saveSecureCacheStorage = SaveSecureCacheStorageSpy();
-    sut = LocalCurrentAccount(saveSecureCacheStorage: saveSecureCacheStorage);
+    sut = LocalSaveCurrentAccount(saveSecureCacheStorage: saveSecureCacheStorage);
     account = AccountEntity(faker.guid.guid());
   });
 

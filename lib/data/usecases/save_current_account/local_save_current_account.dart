@@ -6,10 +6,10 @@ import '../../../domain/entities/entities.dart';
 
 import '../../cache/cache.dart';
 
-class LocalCurrentAccount implements SaveCurrentAccount {
+class LocalSaveCurrentAccount implements SaveCurrentAccount {
   final SaveSecureCacheStorage saveSecureCacheStorage;
 
-  LocalCurrentAccount({@required this.saveSecureCacheStorage});
+  LocalSaveCurrentAccount({@required this.saveSecureCacheStorage});
 
   Future<void> save (AccountEntity account) async {
     try {
