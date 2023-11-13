@@ -15,7 +15,7 @@
 > ## Exceção - Resposta inválida
 1. Sistema retorna uma mensagem de erro inesperado
 
-> ## Exceção - Falha no servidor
+> ## ✅ Exceção - Falha no servidor
 1. Sistema retorna uma mensagem de erro inesperado
 
 > ## Exceção - Email em uso
