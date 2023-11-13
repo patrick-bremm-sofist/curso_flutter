@@ -1,10 +1,9 @@
-import 'package:curso_flutter/utils/i18n/i18n.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
 
 import '../../components/components.dart';
-import '../../helpers/errors/errors.dart';
+import '../../helpers/helpers.dart';
 import 'components/components.dart';
 import 'login_presenter.dart';
 
@@ -52,7 +51,7 @@ class LoginPage extends StatelessWidget {
             children: <Widget>[
               LoginHeader(),
               Headline1(
-                text: 'Login',
+                text: R.strings.login,
               ),
               Padding(
                 padding: EdgeInsets.all(32),
