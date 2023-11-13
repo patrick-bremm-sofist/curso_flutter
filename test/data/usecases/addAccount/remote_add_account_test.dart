@@ -2,6 +2,7 @@ import 'package:faker/faker.dart';
 import 'package:mockito/mockito.dart';
 import 'package:test/test.dart';
 
+import 'package:curso_flutter/domain/helpers/helpers.dart';
 import 'package:curso_flutter/domain/usecases/usecases.dart';
 
 import 'package:curso_flutter/data/usecases/usecases.dart';
@@ -16,6 +17,12 @@ void main() {
   String url;
   AddAccountParams params;
 
+  PostExpectation mockRequest() =>
+    when(httpClient.request(url: anyNamed('url'), method: anyNamed('method'), body: anyNamed('body')));
+
+  void mockHttpError(HttpError error) {
+    mockRequest().thenThrow(error);
+  }
 
   setUp(() {
     httpClient = HttpClientSpy();
@@ -42,5 +49,13 @@ void main() {
           'passwordConfirmation': params.passwordConfirmation
           }
       ));
+  });
+
+  test('Should throw UnexpectedError if HttpClient returns 400', () async {
+    mockHttpError(HttpError.badRequest);
+
+    final future = sut.add(params);
+
+    expect(future, throwsA(DomainError.unexpected));
   });
 }
