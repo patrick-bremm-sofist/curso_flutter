@@ -3,6 +3,7 @@ import 'package:get/route_manager.dart';
 import 'package:provider/provider.dart';
 
 import '../../components/components.dart';
+import '../../helpers/helpers.dart';
 import 'components/components.dart';
 import 'login_presenter.dart';
 
@@ -32,7 +33,7 @@ class LoginPage extends StatelessWidget {
 
         presenter.mainErrorStream.listen((error) {
           if (error != null) {
-            showErrorMessage(context, error);
+            showErrorMessage(context, error.description);
           }
         });
 
@@ -50,7 +51,7 @@ class LoginPage extends StatelessWidget {
             children: <Widget>[
               LoginHeader(),
               Headline1(
-                text: 'Login',
+                text: R.strings.login,
               ),
               Padding(
                 padding: EdgeInsets.all(32),
@@ -68,7 +69,7 @@ class LoginPage extends StatelessWidget {
                       FlatButton.icon(
                           onPressed: () {},
                           icon: Icon(Icons.person),
-                          label: Text('Criar Conta'))
+                          label: Text(R.strings.addAccount))
                     ],
                   )),
                 ),
