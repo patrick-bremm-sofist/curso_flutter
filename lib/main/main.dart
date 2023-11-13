@@ -1,4 +1,3 @@
-import 'package:curso_flutter/utils/i18n/i18n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:get/route_manager.dart';

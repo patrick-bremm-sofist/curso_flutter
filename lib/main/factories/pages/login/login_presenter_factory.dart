@@ -3,12 +3,13 @@ import '../../../../ui/pages/pages.dart';
 
 import '../../factories.dart';
 
-LoginPresenter makeStreamLoginPresenter() {
-  return StreamLoginPresenter(
-    authentication: makeRemoteAuthentication(),
-    validation: makeLoginValidation()
-  );
-}
+// Change type error String for UIError
+// LoginPresenter makeStreamLoginPresenter() {
+//   return StreamLoginPresenter(
+//     authentication: makeRemoteAuthentication(),
+//     validation: makeLoginValidation()
+//   );
+// }
 
 LoginPresenter makeGetxLoginPresenter() {
   return GetxLoginPresenter(
