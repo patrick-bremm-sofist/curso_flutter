@@ -1,12 +1,12 @@
 import 'dart:async';
 
-import 'package:curso_flutter/ui/helpers/errors/errors.dart';
+// import 'package:curso_flutter/ui/helpers/errors/errors.dart';
 import 'package:meta/meta.dart';
 
-import '../../domain/helpers/helpers.dart';
+// import '../../domain/helpers/helpers.dart';
 import '../../domain/usecases/usecases.dart';
 
-import '../../ui/pages/pages.dart';
+// import '../../ui/pages/pages.dart';
 
 import '../protocols/protocols.dart';
 
@@ -61,11 +61,12 @@ class StreamLoginPresenter {
   Future<void> auth() async {
     _state.isLoading = true;
     _update();
-    try {
-      await authentication.auth(AuthenticationParams(email: _state.email, secret: _state.password));
-    } on DomainError catch (error) {
-      _state.mainError = null; // Change type erro String for ErrorUi | error.description;
-    }
+    // Change type erro String for ErrorUi
+    // try {
+    //   await authentication.auth(AuthenticationParams(email: _state.email, secret: _state.password));
+    // } on DomainError catch (error) {
+    //   _state.mainError = null; // Change type erro String for ErrorUi | error.description;
+    // }
     _state.isLoading = false;
     _update();
   }
