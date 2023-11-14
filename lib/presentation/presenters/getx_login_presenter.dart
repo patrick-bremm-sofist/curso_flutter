@@ -1,8 +1,8 @@
-import 'package:get/state_manager.dart';
+import 'package:get/get.dart';
 import 'package:meta/meta.dart';
 
+import '../../ui/helpers/helpers.dart';
 import '../../ui/pages/pages.dart';
-import '../../ui/helpers/errors/errors.dart';
 
 import '../../domain/helpers/helpers.dart';
 import '../../domain/usecases/usecases.dart';
