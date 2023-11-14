@@ -1,9 +1,10 @@
 import 'translations.dart';
 
 class EnUs implements Translations {
+  String get msgEmailInUse => 'Email in use';
+  String get msgInvalidCredentials => 'Invalid Credentials';
   String get msgRequiredField => 'Required field.';
   String get msgInvalidField => 'Invalid field.';
-  String get msgInvalidCredentials => 'Invalid Credentials';
 
   String get addAccount => 'Add account';
   String get confirmPassword => 'Confirm password';
