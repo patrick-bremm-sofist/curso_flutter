@@ -9,7 +9,7 @@ import 'package:curso_flutter/data/usecases/usecases.dart';
 import 'package:curso_flutter/data/http/http_client.dart';
 import 'package:curso_flutter/data/http/http.dart';
 
-class HttpClientSpy extends Mock implements HttpClient {}
+class HttpClientSpy extends Mock implements HttpClient<Map> {}
 
 void main() {
   RemoteAuthentication sut;
