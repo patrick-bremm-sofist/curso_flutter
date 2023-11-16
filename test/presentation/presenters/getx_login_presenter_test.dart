@@ -33,7 +33,7 @@ void main() {
   PostExpectation mockAuthenticationCall() => when(authentication.auth(any));
 
   void mockAuthentication() {
-    mockAuthenticationCall().thenAnswer((_) async => AccountEntity(token));
+    mockAuthenticationCall().thenAnswer((_) async => AccountEntity(token: token));
   }
 
   void mockAuthenticationError(DomainError error) {
@@ -156,7 +156,7 @@ void main() {
 
     await sut.auth();
 
-    verify(saveCurrentAccount.save(AccountEntity(token))).called(1);
+    verify(saveCurrentAccount.save(AccountEntity(token: token))).called(1);
   });
   
   test('Should emit UnexpectedError if SaveCurrentAccount fails', () async {
@@ -165,7 +165,7 @@ void main() {
     sut.validatePassword(password);
 
     expectLater(sut.isLoadingStream, emitsInOrder([true, false]));
-    sut.mainErrorStream.listen(expectAsync1((error) => expect(error, UIError.unexpected)));
+    expectLater(sut.mainErrorStream, emitsInOrder([null, UIError.unexpected]));
 
     await sut.auth();
   });
@@ -174,6 +174,7 @@ void main() {
     sut.validateEmail(email);
     sut.validatePassword(password);
 
+    expectLater(sut.mainErrorStream, emits(null));
     expectLater(sut.isLoadingStream, emits(true));
 
     await sut.auth();
@@ -194,7 +195,7 @@ void main() {
     sut.validatePassword(password);
 
     expectLater(sut.isLoadingStream, emitsInOrder([true, false]));
-    sut.mainErrorStream.listen(expectAsync1((error) => expect(error, UIError.invalidCredentials)));
+    expectLater(sut.mainErrorStream, emitsInOrder([null, UIError.invalidCredentials]));
 
     await sut.auth();
   });
@@ -205,7 +206,7 @@ void main() {
     sut.validatePassword(password);
 
     expectLater(sut.isLoadingStream, emitsInOrder([true, false]));
-    sut.mainErrorStream.listen(expectAsync1((error) => expect(error, UIError.unexpected)));
+    expectLater(sut.mainErrorStream, emitsInOrder([null, UIError.unexpected]));
 
     await sut.auth();
   });
