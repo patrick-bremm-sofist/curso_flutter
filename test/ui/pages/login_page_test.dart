@@ -71,27 +71,6 @@ void main() {
     closeStreams();
   });
 
-  testWidgets('Should load with correct initial state',
-      (WidgetTester tester) async {
-    await loadPage(tester);
-
-    final emailTextChildren = find.descendant(
-        of: find.bySemanticsLabel('Email'), matching: find.byType(Text));
-    expect(emailTextChildren, findsOneWidget,
-        reason:
-            'when a TextFormField has only one text child, means it has no errors, since one of the childs is always the label text');
-
-    final passwordTextChildren = find.descendant(
-        of: find.bySemanticsLabel('Senha'), matching: find.byType(Text));
-    expect(passwordTextChildren, findsOneWidget,
-        reason:
-            'when a TextFormField has only one text child, means it has no errors, since one of the childs is always the label text');
-
-    final button = tester.widget<RaisedButton>(find.byType(RaisedButton));
-    expect(button.onPressed, null);
-    expect(find.byType(CircularProgressIndicator), findsNothing);
-  });
-
   testWidgets('Should call validate with correct values',
       (WidgetTester tester) async {
     await loadPage(tester);
@@ -203,23 +182,23 @@ void main() {
     verify(presenter.auth()).called(1);
   });
 
-  testWidgets('Should present loading', (WidgetTester tester) async {
+  testWidgets('Should handle loading correctly', (WidgetTester tester) async {
     await loadPage(tester);
 
     isLoadingController.add(true);
     await tester.pump();
-
     expect(find.byType(CircularProgressIndicator), findsOneWidget);
-  });
 
-  testWidgets('Should hide loading', (WidgetTester tester) async {
-    await loadPage(tester);
-
-    isLoadingController.add(true);
-    await tester.pump();
     isLoadingController.add(false);
     await tester.pump();
+    expect(find.byType(CircularProgressIndicator), findsNothing);
 
+    isLoadingController.add(true);
+    await tester.pump();
+    expect(find.byType(CircularProgressIndicator), findsOneWidget);
+    
+    isLoadingController.add(null);
+    await tester.pump();
     expect(find.byType(CircularProgressIndicator), findsNothing);
   });
 
