@@ -8,7 +8,7 @@ import 'package:curso_flutter/domain/entities/entities.dart';
 import 'package:curso_flutter/data/http/http.dart';
 import 'package:curso_flutter/data/usecases/usecases.dart';
 
-class HttpClientSpy extends Mock implements HttpClient<List<Map>> {}
+class HttpClientSpy extends Mock implements HttpClient {}
 
 void main() {
   RemoteLoadSurveys sut;

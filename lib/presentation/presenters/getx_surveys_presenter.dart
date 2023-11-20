@@ -8,7 +8,7 @@ import '../../domain/usecases/load_surveys.dart';
 import '../../ui/pages/pages.dart';
 import '../../ui/helpers/errors/errors.dart';
 
-class GetxSurveysPresenter {
+class GetxSurveysPresenter implements SurveysPresenter {
   final LoadSurveys loadSurveys;
 
   final _isLoading = true.obs;
