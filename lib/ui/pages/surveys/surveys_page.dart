@@ -14,7 +14,6 @@ class SurveysPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    presenter.loadData();
     return Scaffold(
       appBar: AppBar(title: Text(R.strings.surveys)),
       body: Builder(
@@ -26,19 +25,25 @@ class SurveysPage extends StatelessWidget {
                 hideLoading(context);
               }
             });
+            presenter.loadData();
 
             return StreamBuilder<List<SurveyViewModel>>(
               stream: presenter.surveysStream,
               builder: (context, snapshot) {
                 if (snapshot.hasError) {
-                  return Column(
-                    children: [
-                      Text(snapshot.error),
-                      RaisedButton(
-                        onPressed: presenter.loadData,
-                        child: Text(R.strings.reload),
-                      )
-                    ],
+                  return Padding(
+                    padding: const EdgeInsets.all(40),
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(snapshot.error, style: TextStyle(fontSize: 16), textAlign: TextAlign.center),
+                        SizedBox(height: 10),
+                        RaisedButton(
+                          onPressed: presenter.loadData,
+                          child: Text(R.strings.reload),
+                        )
+                      ],
+                    ),
                   );
                 }
                 if (snapshot.hasData) {
