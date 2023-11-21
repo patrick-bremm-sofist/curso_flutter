@@ -1,3 +1,7 @@
+## Link Curso
+
+https://www.udemy.com/course/flutter-com-mango/
+
 ## Required
 
 Gradle: 6.3
@@ -25,3 +29,18 @@ fvm use 1.20.4
 . Para criar o usuário usar o endpoint /signup.
 
 . IP para o Emulador conseguir bater na API Local: 10.0.2.2
+
+#### Ajuste Backend
+
+No arquivo account-mongo-repository.ts, fazer seguinte import:
+Caminho: src/infra/db/mongodb/account-mongo-repository.ts
+
+`import { ObjectId } from 'mongodb'`
+
+Na linha 41 mudar para seguinte trecho de código:
+
+`_id: new ObjectId(id)`
+
+Segue a imagem com alteração:
+
+**Lembrar que precisa fazer build novamente
