@@ -1,3 +1,4 @@
+import 'package:curso_flutter/data/cache/cache.dart';
 import 'package:curso_flutter/data/models/local_survey_model.dart';
 import 'package:curso_flutter/domain/entities/entities.dart';
 import 'package:curso_flutter/domain/helpers/domain_error.dart';
@@ -25,10 +26,6 @@ class LocalLoadSurveys {
 }
 
 class FetchCacheStorageSpy extends Mock implements FetchCacheStorage {}
-
-abstract class FetchCacheStorage {
-  Future<dynamic> fetch(String key);
-}
 
 void main() {
   LocalLoadSurveys sut;
