@@ -59,6 +59,8 @@ void main() {
     when(mockRemoteLoadCall().thenAnswer((_) async => remoteSurveys));
   }
 
+  void mockRemoteLoadError(DomainError error) => mockRemoteLoadCall().thenThrow(error);
+  
   PostExpectation mockLocalLoadCall() => when(local.load());
 
   void mockLocalLoad() {
@@ -66,7 +68,7 @@ void main() {
     when(mockLocalLoadCall().thenAnswer((_) async => localSurveys));
   }
 
-  void mockRemoteLoadError(DomainError error) => mockRemoteLoadCall().thenThrow(error);
+  void mockLocalLoadError() => mockLocalLoadCall().thenThrow(DomainError.unexpected);
 
   setUp(() {
     remote = RemoteLoadSurveysSpy();
@@ -120,5 +122,14 @@ void main() {
     final surveys = await sut.load();
 
     expect(surveys, localSurveys);
+  });
+
+  test('Should throw UnexpectedError if remote and local throws', () async {
+    mockRemoteLoadError(DomainError.unexpected);
+    mockLocalLoadError();
+    
+    final future = sut.load();
+
+    expect(future, throwsA(DomainError.unexpected));
   });
 }
